@@ -1,0 +1,201 @@
+:root {
+  --bg: #f4f6ff;
+  --card: #ffffff;
+  --primary: #5a67d8;
+  --secondary: #7f9cf5;
+  --text: #1a202c;
+  --muted: #718096;
+}
+
+body.dark {
+  --bg: #0f1224;
+  --card: #1a1f3c;
+  --primary: #7f9cf5;
+  --secondary: #667eea;
+  --text: #edf2ff;
+  --muted: #a0aec0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text);
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* LOGIN */
+.login-area {
+  background: var(--card);
+  padding: 30px;
+  border-radius: 16px;
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  animation: fadeIn 0.6s ease;
+}
+
+.caption {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.or {
+  color: var(--muted);
+}
+
+/* TODO */
+.todo-container {
+  background: var(--card);
+  width: 420px;
+  padding: 25px;
+  border-radius: 18px;
+  display: none;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  animation: slideUp 0.5s ease;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-actions {
+  display: flex;
+  gap: 8px;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.progress-wrapper {
+  background: rgba(0,0,0,0.1);
+  border-radius: 20px;
+  height: 10px;
+  overflow: hidden;
+  margin: 15px 0;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  transition: width 0.4s ease;
+}
+
+/* INPUT */
+.input-area {
+  display: grid;
+  grid-template-columns: 1fr 110px auto;
+  gap: 10px;
+}
+
+input, select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: var(--primary);
+  color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+#logoutBtn {
+  background: crimson;
+}
+
+#themeToggle {
+  background: transparent;
+  color: var(--text);
+  font-size: 18px;
+}
+
+/* LIST */
+ul {
+  list-style: none;
+  margin-top: 20px;
+}
+
+li {
+  background: rgba(0,0,0,0.05);
+  padding: 12px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  animation: fadeIn 0.3s ease;
+}
+
+li.completed span {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.tag {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 12px;
+  margin-left: 8px;
+  color: white;
+}
+
+.personal { background: #4299e1; }
+.work { background: #805ad5; }
+.study { background: #38a169; }
+
+.actions {
+  display: flex;
+  gap: 6px;
+}
+
+.actions button {
+  font-size: 12px;
+  padding: 6px 8px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0 }
+  to { transform: translateY(0); opacity: 1 }
+}
+
+@media (max-width: 450px) {
+  .todo-container, .login-area {
+    width: 95%;
+  }
+
+  .input-area {
+    grid-template-columns: 1fr;
+  }
+}
